@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Center,
   Box,
   Button,
   Spacer,
   Heading,
   Flex,
   SimpleGrid,
-  Container,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import GridCard from './GridCard';
+import GridCardDraggable from './GridCardDraggable';
 import axios from 'axios';
 
 const GridContainer = () => {
@@ -90,10 +88,11 @@ const GridContainer = () => {
         >
           {devices.map((entry, index) => {
             return (
-              <GridCard
-                key={entry.wikiid}
+              <GridCardDraggable
+                key={index}
                 image={entry.image.thumbnail}
                 title={entry.display_title}
+                id={entry.wikiid}
               />
             );
           })}

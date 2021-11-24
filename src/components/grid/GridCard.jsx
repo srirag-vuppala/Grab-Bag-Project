@@ -10,9 +10,10 @@ import {
 
 import React from 'react';
 
-const GridCard = ({ title, image }) => {
+const GridCard = ({ id, title, image }) => {
+
   return (
-    <Box>
+    <Box >
       <Center my={4}>
         <Box
           role={'group'}
