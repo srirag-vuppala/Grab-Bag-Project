@@ -4,15 +4,15 @@ import {
   Box,
   Image,
   Center,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 
 import React from 'react';
 
 const GridCard = ({ title, image }) => {
+
   return (
-    <Box>
+    <Box >
       <Center my={4}>
         <Box
           role={'group'}
