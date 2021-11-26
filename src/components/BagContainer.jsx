@@ -9,10 +9,10 @@ const BagContainer = () => {
   );
 
   const addToBag = item => {
-    let bagDevicesIds = []
-    bagDevices.forEach((device)=> {
-      bagDevicesIds.push(device.id)
-    })
+    let bagDevicesIds = [];
+    bagDevices.forEach(device => {
+      bagDevicesIds.push(device.id);
+    });
     // only add device if it doesn't esist in bag
     if (!bagDevicesIds.includes(item.id)) {
       setBagDevices([...bagDevices, item]);
@@ -52,8 +52,8 @@ const BagContainer = () => {
           <GridCard key={index} image={entry.image} title={entry.title} />
         ))}
         {bagDevices.length === 0 && (
-          <Box m={40}>
-            <Center>An empty backpack!</Center>
+          <Box>
+            <Center py={75}>An empty backpack!</Center>
           </Box>
         )}
       </Box>

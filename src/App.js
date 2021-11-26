@@ -12,17 +12,17 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function App() {
   return (
-    <ChakraProvider theme={customTheme}>
-      <DndProvider backend={HTML5Backend}>
-        <Box maxWidth='100%' maxHeight='100%'>
-        <Navbar />
-        <Flex p={5}>
-          <BagContainer />
-          <GridContainer />
-        </Flex>
-        </Box>
-      </DndProvider>
-    </ChakraProvider>
+    <Box w="100%" h="100%">
+      <ChakraProvider theme={customTheme}>
+        <DndProvider backend={HTML5Backend}>
+          <Navbar />
+          <Flex p={5}>
+            <BagContainer />
+            <GridContainer />
+          </Flex>
+        </DndProvider>
+      </ChakraProvider>
+    </Box>
   );
 }
 
