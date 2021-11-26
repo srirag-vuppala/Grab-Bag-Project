@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, Flex } from '@chakra-ui/react';
+import { ChakraProvider, Flex, Box } from '@chakra-ui/react';
 
 import customTheme from './styles/customTheme.js';
 
@@ -14,11 +14,13 @@ function App() {
   return (
     <ChakraProvider theme={customTheme}>
       <DndProvider backend={HTML5Backend}>
+        <Box maxWidth='100%' maxHeight='100%'>
         <Navbar />
         <Flex p={5}>
           <BagContainer />
           <GridContainer />
         </Flex>
+        </Box>
       </DndProvider>
     </ChakraProvider>
   );
