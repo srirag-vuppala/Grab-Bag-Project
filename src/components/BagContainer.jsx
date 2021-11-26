@@ -1,4 +1,4 @@
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Box, Center, Container, Heading } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import GridCard from './grid/GridCard';
@@ -24,13 +24,12 @@ const BagContainer = () => {
     }),
   });
 
-  // useEffect(() => {
-  //   setBagDevices(localStorage === null ? [] : localStorage)
-  // }, [])
 
   return (
     <Container>
+      <Center>
       <Heading>Backpack</Heading>
+      </Center>
       <Box
         border="2px"
         p={5}
@@ -38,16 +37,15 @@ const BagContainer = () => {
         borderColor="brand.blue"
         ref={dropRef}
       >
-        {console.log(localStorage)}
         {bagDevices.map((entry, index) => (
           <GridCard
             key={index}
             image={entry.image}
             title={entry.title}
-            id={entry.id}
           />
         ))}
-        {isOver && <Box>Drop here</Box>}
+        {isOver && <Box m={40}><Center>Drop here!</Center></Box>}
+        {bagDevices.length === 0 && <Box m={40}><Center>An empty backpack!</Center></Box>}
       </Box>
     </Container>
   );

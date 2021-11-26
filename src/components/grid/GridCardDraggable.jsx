@@ -13,7 +13,7 @@ const GridCardDraggable = ({ id, title, image }) => {
   });
   return (
     <Box ref={dragRef}>
-      <GridCard draggable id={id} title={title} image={image} />
+      <GridCard draggable title={title} image={image} />
     </Box>
   );
 };

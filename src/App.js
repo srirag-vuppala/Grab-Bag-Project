@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, Box, Flex } from '@chakra-ui/react';
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 
 import customTheme from './styles/customTheme.js';
 

@@ -23,7 +23,6 @@ const GridContainer = () => {
         `https://www.ifixit.com/api/2.0/wikis/CATEGORY?offset=${offset}&limit=${numberOfDevicesPerPage}`
       );
       let response = await res.data;
-      console.log(response);
       setDevices(response);
     } catch (err) {
       console.warn(err);
