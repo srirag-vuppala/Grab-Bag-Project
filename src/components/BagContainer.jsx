@@ -4,12 +4,19 @@ import { useDrop } from 'react-dnd';
 import GridCard from './grid/GridCard';
 
 const BagContainer = () => {
-  const [bagDevices, setBagDevices] = useState(JSON.parse(window.localStorage.getItem('bagDevices')) || [])
+  const [bagDevices, setBagDevices] = useState(
+    JSON.parse(window.localStorage.getItem('bagDevices')) || []
+  );
 
   const addToBag = item => {
-    setBagDevices(bagDevices =>
-      !bagDevices.includes(item) ? [...bagDevices, item] : bagDevices
-    );
+    let bagDevicesIds = []
+    bagDevices.forEach((device)=> {
+      bagDevicesIds.push(device.id)
+    })
+    // only add device if it doesn't esist in bag
+    if (!bagDevicesIds.includes(item.id)) {
+      setBagDevices([...bagDevices, item]);
+    }
   };
 
   useEffect(() => {
@@ -24,11 +31,10 @@ const BagContainer = () => {
     }),
   });
 
-
   return (
     <Container>
       <Center>
-      <Heading>Backpack</Heading>
+        <Heading>Backpack</Heading>
       </Center>
       <Box
         border="2px"
@@ -37,15 +43,19 @@ const BagContainer = () => {
         borderColor="brand.blue"
         ref={dropRef}
       >
+        {isOver && (
+          <Box m={40}>
+            <Center>Drop here!</Center>
+          </Box>
+        )}
         {bagDevices.map((entry, index) => (
-          <GridCard
-            key={index}
-            image={entry.image}
-            title={entry.title}
-          />
+          <GridCard key={index} image={entry.image} title={entry.title} />
         ))}
-        {isOver && <Box m={40}><Center>Drop here!</Center></Box>}
-        {bagDevices.length === 0 && <Box m={40}><Center>An empty backpack!</Center></Box>}
+        {bagDevices.length === 0 && (
+          <Box m={40}>
+            <Center>An empty backpack!</Center>
+          </Box>
+        )}
       </Box>
     </Container>
   );
